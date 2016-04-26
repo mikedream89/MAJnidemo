@@ -5,10 +5,13 @@ android studio 引用so 文件：
 
 JNI 生成c文件	
 1.点击rebuild project 会生成app/build/intermediates/classes/debug 目录
+
 2.进入这个目录  cd app/build/intermediates/classes/debug
   输入命令： javah -jni com.wobiancao.ndkjnidemo.ndk.JniUtils
   当前目录生成一个.h文件 com_wobiancao_ndkjnidemo_ndk_JniUtils.h
+  
 3.然后在src/main下新建文件夹jni ，将.h文件拷贝到下面，修改为.c后缀
+
 4.在gradle.properties文件末尾添加android.useDeprecatedNdk=true
   然后在app文件下得build.gradle ->defaultConfig括号内添加如下代码
   ndk {
@@ -17,6 +20,6 @@ JNI 生成c文件
    }
 
 5.在JniUtils类里面添加如下代码
-static {
+  static {
    System.loadLibrary("NdkJniDemo");//之前在build.gradle里面设置的so名字，必须一致
-}
+  }
