@@ -1,5 +1,6 @@
 # MAJnidemo
 JNI 开发
+
 android studio 引用so 文件：
  main 文件下：新建 jniLibs 直接放里面
 
